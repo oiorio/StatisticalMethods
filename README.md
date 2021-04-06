@@ -16,29 +16,30 @@ By default (installation procedure should ask you) it will create a folder /home
 
 It will ask to automatically setup the Miniconda , meaning your path will be extended with
 
-PATH=$PATH:/home/username/miniconda2/bin
+  PATH=$PATH:/home/username/miniconda2/bin
 
 Note: the version of python might be different depending on which one you are using.
 
-Once you installed conda, suggest to log in again to make the .bashrc launch again, or just make source .bashrc
+Once you installed conda, suggest to log in again to make the .bashrc launch again, or just make 
+  source .bashrc
 
 1.1) Creating the environment: with conda it's often useful to create a working environment that will help you setup all your codes.
 
-conda create -n rootenv -c conda-forge
+  conda create -n rootenv -c conda-forge
 
 "rootenv" can be any name you want.
 
 After you create it, activate it with:
 
-conda activate rootenv
+  conda activate rootenv
 
 You can install programs in the global environment, but it's not suggested:
 
-conda deactivate
+  conda deactivate
 
 and proceed. In that case, you will have to manually link the pythonpath:
 
-PYTHONPATH=$PYTHONPATH:/home/username/miniconda2/lib/pythonX.Y/site-package
+  PYTHONPATH=$PYTHONPATH:/home/username/miniconda2/lib/pythonX.Y/site-package
 
 Note that X.Y is your local python version.
 
@@ -46,7 +47,7 @@ Note that X.Y is your local python version.
 
 To install minuit:
 
-conda install minuit -c conda-forge
+  conda install minuit -c conda-forge
 
 you can also install it on your machine by first deactivating the environment
 
@@ -56,7 +57,7 @@ you can also install it on your machine by first deactivating the environment
 
 To install root:
 
-conda install minuit -c conda-forge
+  conda install minuit -c conda-forge
 
 you can also install it on your machine by first deactivating the environment, but it's not recommended with conda,
 
