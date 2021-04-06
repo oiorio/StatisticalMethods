@@ -1,4 +1,4 @@
-##Welcome to the Stat Methods page!
+## Welcome to the Stat Methods page!
 
 ## 1) Installing conda
 
