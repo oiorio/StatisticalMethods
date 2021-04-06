@@ -24,10 +24,23 @@ PYTHONPATH=$PYTHONPATH:/home/username/miniconda2/lib/python2.7/site-packages
 
 Note: the version of python might be different depending on which one you are using.
 
+Once you installed conda, suggest to log in again to make the .bashrc launch again, or just make source .bashrc
+
 ## 2) Installing iminuit
 
-Once you installed conda, suggest to log in again to make the .bashrc launch again, or just make source .bashrc
+To install minuit:
 
 conda install -f iminuit -c conda-forge
 
-You are ready 
+## 3) Installing root
+
+To install root:
+
+3.1 conda install -f iminuit -c conda-forge
+
+3.2 Or you can create an enviornment following this guide
+
+https://iscinumpy.gitlab.io/post/root-conda/
+
+But I would suggest to use the first one for the purposes of this exercise.
+
