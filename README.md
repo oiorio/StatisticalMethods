@@ -16,7 +16,7 @@ By default (installation procedure should ask you) it will create a folder /home
 
 It will ask to automatically setup the Miniconda , meaning your path will be extended with
 
-  PATH=$PATH:/home/username/miniconda2/bin
+    PATH=$PATH:/home/username/miniconda2/bin
 
 Note: the version of python might be different depending on which one you are using.
 
