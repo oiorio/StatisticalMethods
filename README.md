@@ -18,29 +18,46 @@ It will ask to automatically setup the Miniconda , meaning your path will be ext
 
 PATH=$PATH:/home/username/miniconda2/bin
 
-If you have a $PYTHONPATH setup, you should add this to the path in a similar way:
-
-PYTHONPATH=$PYTHONPATH:/home/username/miniconda2/lib/python2.7/site-packages
-
 Note: the version of python might be different depending on which one you are using.
 
 Once you installed conda, suggest to log in again to make the .bashrc launch again, or just make source .bashrc
+
+1.1) Creating the environment: with conda it's often useful to create a working environment that will help you setup all your codes.
+
+conda create -n rootenv -c conda-forge
+
+"rootenv" can be any name you want.
+
+After you create it, activate it with:
+
+conda activate rootenv
+
+You can install programs in the global environment, but it's not suggested:
+
+conda deactivate
+
+and proceed. In that case, you will have to manually link the pythonpath:
+
+PYTHONPATH=$PYTHONPATH:/home/username/miniconda2/lib/pythonX.Y/site-package
+
+Note that X.Y is your local python version.
 
 ## 2) Installing iminuit
 
 To install minuit:
 
-conda install -f iminuit -c conda-forge
+conda install minuit -c conda-forge
+
+you can also install it on your machine by first deactivating the environment
+
+
 
 ## 3) Installing root
 
 To install root:
 
-3.1 conda install -f iminuit -c conda-forge
+conda install minuit -c conda-forge
 
-3.2 Or you can create an enviornment following this guide
+you can also install it on your machine by first deactivating the environment, but it's not recommended with conda,
 
-https://iscinumpy.gitlab.io/post/root-conda/
-
-But I would suggest to use the first one for the purposes of this exercise.
 
