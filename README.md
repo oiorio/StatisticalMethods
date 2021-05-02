@@ -60,4 +60,12 @@ To install root:
 
 you can also install it on your machine by first deactivating the environment, but it's not recommended with conda,
 
+## 4) Installing mathplotlib
+
+To install root:
+
+    conda install minuit -c mathplotlib
+
+Used by some tools, including minuit, for plotting routines.
+
 
