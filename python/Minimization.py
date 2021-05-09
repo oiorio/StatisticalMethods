@@ -103,11 +103,11 @@ def main(argv):
     
     
     scipy_min= fmin(lambda args:ls(args[0],args[1]) , [a,b],full_output=True, disp=False)
-    #this is one option, but doesn't evaluate hesseb
-
+    #this is one option, but doesn't evaluate hessian
+    
     scipy_min= fmin_bfgs(lambda args:ls(args[0],args[1]) , [a,b],full_output=True, disp=False)
     #this option evaluates hessian
-
+    
     #now printing all values
     print("printing all parameters from minuit minimization")
     print ( m1.params )
@@ -186,16 +186,11 @@ def main(argv):
     m2.minos()
     print("covmatrix",m2.covariance)
 
-    print(nl2(mu,sigma))
-
-    scipy_min_gauss= fmin_bfgs(lambda args:nl(args[0],args[1]) , [mu,sigma],full_output=True, disp=False)
 
     print("printing all parameters from minuit minimization")
     print ( m2.params )
     print("printing covariance matrix")
     print ( m2.covariance )
-    print("printing bfsg algorithm:")
-    print(scipy_min_gauss)
     
 
 if __name__ == "__main__":

@@ -24,7 +24,7 @@ class sum_function(rv_continuous):
     
     def _pdf(self, x):
         f1=self.sig/(self.sig+self.bkg) 
-        f2=self.bkg/(self.sig+self.bkg)
+        f2=self.bkg/(self.sig+self.bkg)#bkg can be larger than 1 and signal can be smaller than 0!!!
         
         sigpdf = np.exp(-(x-self.mean)**2 / (2.*self.sigma**2)) / (self.sigma*np.sqrt(2.0 * np.pi))
         bkgpdf = 1/self.l*np.exp(-(x/self.l) )
@@ -43,7 +43,6 @@ def main(argv):
     print(numlist)
 
 
-
     #2.1 let's write the likelihood by hand:
     #set some initial values of the parameters
     
@@ -56,14 +55,14 @@ def main(argv):
     nll=0
     sum_pdf=sum_function(a=0.,b=3000.)
     sum_pdf.set_pars(mean=mean,sigma=sigma,l=l,sig=s,bkg=b)
-
+    
     for n in numlist:
         spdf=sum_pdf.pdf(n)
         nll+=-2*np.log(spdf)
         if np.isnan(nll) or nll>10000000:return
         
     print ("log likelihood",nll)
-
+    #return
     #is this enough? 
     #This doesn't take into account the fluctuation of the number of events!
     nexpected=len(numlist)#for exercise, we take n expected = n observed
@@ -74,7 +73,7 @@ def main(argv):
     p = -2*np.log(pois.pmf(nobserved))
     
     print ("new log likelihood",p+nll)
-   
+#    return
     #Now we need to maximize this function! How do we do?
     
     # We need first to write the function to maximize!
@@ -98,26 +97,25 @@ def main(argv):
     exnll = extendednll(extendedNLLfunction,numlist)
 
     print(exnll(mean,sigma,l,s,b))
-
+    
 
     m3=Minuit(exnll,mean,sigma,l,s,b)
     for e in range(len(m3.errors)):
         m3.errors[e]=m3.values[e]*0.3
-
+    
     print(Minuit.LEAST_SQUARES)
     m3.errordef=Minuit.LIKELIHOOD
     m3.strategy= 0
     m3.scan()
-    m3.strategy= 1
-    m3.scan()
-
+#    m3.strategy= 1
+#    m3.scan()
+    
     fig, ax = plt.subplots(1, 1)
     
     m3.draw_profile("x3")
     m3.draw_profile("x4")
 
     plt.savefig("simplescanplot+"+postfix+".png")
-
     prof3x,prof3y=m3.profile("x3")
     prof4x,prof4y=m3.profile("x4")
     print(m3.params, m3.values, m3.errors,m3.covariance)
@@ -139,6 +137,12 @@ def main(argv):
     print(prof3x,prof3y)
     print("\n\n\n")
     print(prof4x,prof4y)
+
+    #2.3 exercise: how about a binned maximum likelihood?
+
+    #We need to merge together the bins:
+
+    #2.4 what if I want to extract an upper limit for s?  
 
     
 if __name__ == "__main__":

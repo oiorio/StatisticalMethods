@@ -30,7 +30,7 @@ class sum_function(rv_continuous):
 
 def main(argv):
     print("Generating events")
-
+    
     
     sevents=200
     bevents=1000
@@ -39,7 +39,7 @@ def main(argv):
     if(len(argv)>1):sevents=argv[1]
     if(len(argv)>2):bevents= argv[2]
     if(len(argv)>3):seed= argv[3]
-
+    
     seed = int(seed)
 
     s_true=int(sevents)
@@ -53,6 +53,7 @@ def main(argv):
     
     sgen=poisson.rvs(s_true) 
     bgen=poisson.rvs(b_true) 
+    #sb=poisson.rvs(s_true+b_true)
     genevents=sb_func.rvs(size=sgen+bgen)
     
     fig, ax = plt.subplots(1, 1)
