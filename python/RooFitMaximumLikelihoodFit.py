@@ -241,7 +241,11 @@ def rooPart4(doHypothesisTest=False,doAsymp=False,doFreq=False):
             ahypo.Print()
 
         if(freq):
+            
             #use frequentist approach: 
+            #Warning: this will take a lot of time! 
+            #In general: better use asymptotic approximation if number of events is rather large. 
+            #Bias in the test statistic negative log likelihood, i.e. q0, will go as 1/sqrt(N) --> negligible for large datasets
 
             #Create hypotest inverter passing the calculator 
             freqCalc = ROOT.RooStats.HypoTestInverter(fc)
