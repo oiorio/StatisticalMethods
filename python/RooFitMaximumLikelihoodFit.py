@@ -293,10 +293,10 @@ def rooPart4(doHypothesisTest=False,doAsymp=False,doFreq=False):
                 gr2.Draw("LF")
                 gr1.Draw("LP")
 
-                inv_plot.Draw("2CL")
+            inv_plot.Draw("2CL")
                 #        inv_plot.Draw("")
                 #c1.GetYAxis().SetRangeUser(0.01,10)
-                c1.SaveAs("limitex"+postfix+".png")
+            c1.SaveAs("limitex"+postfix+".png")
             
         if(asymp):
             asympCalc = ROOT.RooStats.HypoTestInverter(ac)
@@ -333,7 +333,9 @@ def rooPart4(doHypothesisTest=False,doAsymp=False,doFreq=False):
                 inv_plot.Draw("2CL")
                 #        inv_plot.Draw("")
                 #c1.GetYAxis().SetRangeUser(0.01,10)
-                c1.SaveAs("limitex"+postfix+".png")
+            else:
+                inv_plot.Draw("2CL")
+            c1.SaveAs("limitex"+postfix+".png")
 
     paramsscan_alt ={"npoints":20,"poimin":0,"poimax":500,"minplot":0.001,"maxplot":10}
     paramsscan_all ={"npoints":20,"poimin":100,"poimax":600,"minplot":0.001,"maxplot":10}
@@ -346,7 +348,7 @@ def rooPart4(doHypothesisTest=False,doAsymp=False,doFreq=False):
         poi.find("signal").setVal(50)
         SBModel.SetSnapshot(poi)
 
-    printLimits(DATA=AltData,BM=BModel,SM=SBModel,poiname="signal",signif=doHypothesisTest,asymp=doAsymp,paramsscan=paramsscan_alt,postfix="alt")
+#    printLimits(DATA=AltData,BM=BModel,SM=SBModel,poiname="signal",signif=doHypothesisTest,asymp=doAsymp,paramsscan=paramsscan_alt,postfix="alt")
 
     if(doHypothesisTest):
         poi.find("signal").setVal(250)
