@@ -4,21 +4,18 @@ Follow the basic instructions on the necessary steps to install conda, minuit, e
 
 ## 1) Installing conda
 
-Download miniconda installer your platform:
+Install anaconda for your platform:
 
-https://docs.conda.io/en/latest/miniconda.html
+https://docs.anaconda.com/anaconda/install/index.html
 
-And proceed with the instructions
-
-https://conda.io/projects/conda/en/latest/user-guide/install/index.html
 
 By default (installation procedure should ask you) it will create a folder /home/username/miniconda2
 
-It will ask to automatically setup the Miniconda , meaning your path will be extended with
+It can ask to automatically setup the Conda , meaning your path will be extended with
 
-    PATH=$PATH:/home/username/miniconda2/bin
+    PATH=$PATH:/home/username/anaconda3/bin
 
-    //Note: the version of python might be different depending on which one you are using.
+    //Note: the version of python might be different depending on which OS and conda version you install - conda 3 should be the latest.
 
 Once you installed conda, suggest to log in again to make the .bashrc launch again, or just make 
 
@@ -40,11 +37,27 @@ You can install programs in the global environment, but it's not suggested:
 
 and proceed. In that case, you will have to manually link the pythonpath:
 
-    PYTHONPATH=$PYTHONPATH:/home/username/miniconda2/lib/pythonX.Y/site-package
+    PYTHONPATH=$PYTHONPATH:/home/username/anaconda3/lib/pythonX.Y/site-package
 
 Note that X.Y is your local python version.
 
-## 2) Installing iminuit
+For the anaconda navigator you may have to install extra graphics libraries. For example, for linux:
+
+    apt-get install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
+
+## 2) installing jupyter
+
+You should be able to launch the command for the anaconda navigator:
+
+    anaconda-navigator
+
+From there, you should be able to follow the jupyter icon and either install it or update it.
+
+It can be launched from command line as well:
+
+    jupyter-notebook
+
+## 3) Installing iminuit
 
 To install iminuit:
 
@@ -52,7 +65,7 @@ To install iminuit:
 
 you can also install it on your machine by first deactivating the environment
 
-## 3) Installing root
+## 4) Installing root
 
 To install root:
 
@@ -60,12 +73,11 @@ To install root:
 
 you can also install it on your machine by first deactivating the environment, but it's not recommended with conda,
 
-## 4) Installing mathplotlib
+## 5) Installing mathplotlib
 
 To install root:
 
     conda install minuit -c mathplotlib
 
 Used by some tools, including minuit, for plotting routines.
-
 
