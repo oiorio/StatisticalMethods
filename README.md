@@ -21,7 +21,7 @@ Once you installed conda, suggest to log in again to make the .bashrc launch aga
 
     source .bashrc
 
-1.1) Creating the environment: with conda it's often useful to create a working environment that will help you setup all your codes.
+1.1) Creating the environment: with conda it's often useful to create a working environment that will help you setup all your codes. 
 
     conda create -n rootenv -c conda-forge
 
@@ -69,7 +69,7 @@ you can also install it on your machine by first deactivating the environment
 
 To install root:
 
-    conda install minuit -c conda-forge
+    conda install root -c conda-forge
 
 you can also install it on your machine by first deactivating the environment, but it's not recommended with conda,
 
@@ -77,7 +77,7 @@ you can also install it on your machine by first deactivating the environment, b
 
 To install root:
 
-    conda install minuit -c mathplotlib
+    conda install mathplotlib -c conda-forge
 
 Used by some tools, including minuit, for plotting routines.
 
