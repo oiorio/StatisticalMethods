@@ -2,6 +2,16 @@
 
 Follow the basic instructions on the necessary steps to install conda, minuit, etc. 
 
+## 0) Operative systems:
+
+The following instructions are intended by considering a linux shell is available. 
+
+If you are not working on a native linux environment there are a few options:
+
+- Windows subsystem for Linux: will install a terminal for Windows that emulates a specfic subsystem: https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10#1-overview
+
+- VirtualBox: will create a virtual machine that fully emulates a different OS: https://www.virtualbox.org/wiki/Downloads 
+
 ## 1) Installing conda
 
 Install anaconda for your platform:
